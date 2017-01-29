@@ -1,2 +1,2 @@
 # mimatte
-Public repository for mimatte.com
+Repository for mimatte.com, an appointment app.
