@@ -28,4 +28,19 @@
         @footer()
     </body>
     <script src="@routes.Assets.at("js/jquery-1.11.1.min.js")" type="text/javascript"></script>
+    <!-- script for menu -->
+    <script>
+            $( "span.menu" ).click(function() {
+                $( "ul.nav1" ).slideToggle( 300, function() {
+                    // Animation complete.
+                });
+            });
+
+            $('li > a').click(function() {
+                $('li').removeClass();
+                $(this).parent().addClass('hvr-sweep-to-bottom');
+                $(this).parent().addClass('active');
+            });
+    </script>
+    <!-- //script for menu -->
 </html>
