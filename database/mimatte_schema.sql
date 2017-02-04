@@ -20,9 +20,12 @@ USE `mimatte_db` ;
 DROP TABLE IF EXISTS `mimatte_db`.`facial_treatment_type` ;
 
 CREATE TABLE IF NOT EXISTS `mimatte_db`.`facial_treatment_type` (
-  `id` INT UNSIGNED NOT NULL AUTO_INCREMENT,
+  `id` TINYINT UNSIGNED NOT NULL AUTO_INCREMENT,
   `code` VARCHAR(6) NOT NULL,
   `name` VARCHAR(150) NOT NULL,
+  `deleted_at` TIMESTAMP NULL,
+  `created_at` TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `updated_at` TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
   PRIMARY KEY (`id`),
   UNIQUE INDEX `code_UNIQUE` (`code` ASC))
 ENGINE = InnoDB;
@@ -34,11 +37,14 @@ ENGINE = InnoDB;
 DROP TABLE IF EXISTS `mimatte_db`.`treatment` ;
 
 CREATE TABLE IF NOT EXISTS `mimatte_db`.`treatment` (
-  `id` INT UNSIGNED NOT NULL AUTO_INCREMENT,
+  `id` SMALLINT UNSIGNED NOT NULL AUTO_INCREMENT,
   `name` VARCHAR(255) NOT NULL,
   `description` BLOB NULL,
   `base_price` DECIMAL(7,2) NOT NULL,
   `duration` TINYINT NOT NULL,
+  `deleted_at` TIMESTAMP NULL,
+  `created_at` TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `updated_at` TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
   PRIMARY KEY (`id`))
 ENGINE = InnoDB;
 
@@ -49,9 +55,12 @@ ENGINE = InnoDB;
 DROP TABLE IF EXISTS `mimatte_db`.`facial_treatment` ;
 
 CREATE TABLE IF NOT EXISTS `mimatte_db`.`facial_treatment` (
-  `id` INT UNSIGNED NOT NULL AUTO_INCREMENT,
-  `facial_treatment_type_id` INT UNSIGNED NOT NULL,
-  `treatment_id` INT UNSIGNED NOT NULL,
+  `id` TINYINT UNSIGNED NOT NULL AUTO_INCREMENT,
+  `facial_treatment_type_id` TINYINT UNSIGNED NOT NULL,
+  `treatment_id` SMALLINT UNSIGNED NOT NULL,
+  `deleted_at` TIMESTAMP NULL,
+  `created_at` TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `updated_at` TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
   PRIMARY KEY (`id`),
   INDEX `fk_facial_treatment_facial_treatment_type_idx` (`facial_treatment_type_id` ASC),
   INDEX `fk_facial_treatment_treatment1_idx` (`treatment_id` ASC),
@@ -74,9 +83,12 @@ ENGINE = InnoDB;
 DROP TABLE IF EXISTS `mimatte_db`.`body_treatment_type` ;
 
 CREATE TABLE IF NOT EXISTS `mimatte_db`.`body_treatment_type` (
-  `id` INT UNSIGNED NOT NULL AUTO_INCREMENT,
+  `id` TINYINT UNSIGNED NOT NULL AUTO_INCREMENT,
   `code` VARCHAR(6) NOT NULL,
   `name` VARCHAR(150) NOT NULL,
+  `deleted_at` TIMESTAMP NULL,
+  `created_at` TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `updated_at` TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
   PRIMARY KEY (`id`),
   UNIQUE INDEX `code_UNIQUE` (`code` ASC))
 ENGINE = InnoDB;
@@ -88,9 +100,12 @@ ENGINE = InnoDB;
 DROP TABLE IF EXISTS `mimatte_db`.`body_treatment` ;
 
 CREATE TABLE IF NOT EXISTS `mimatte_db`.`body_treatment` (
-  `id` INT UNSIGNED NOT NULL AUTO_INCREMENT,
-  `body_treatment_type_id` INT UNSIGNED NOT NULL,
-  `treatment_id` INT UNSIGNED NOT NULL,
+  `id` TINYINT UNSIGNED NOT NULL AUTO_INCREMENT,
+  `body_treatment_type_id` TINYINT UNSIGNED NOT NULL,
+  `treatment_id` SMALLINT UNSIGNED NOT NULL,
+  `deleted_at` TIMESTAMP NULL,
+  `created_at` TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `updated_at` TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
   PRIMARY KEY (`id`),
   INDEX `fk_body_treatment_body_treatment_type1_idx` (`body_treatment_type_id` ASC),
   INDEX `fk_body_treatment_treatment1_idx` (`treatment_id` ASC),
@@ -113,8 +128,11 @@ ENGINE = InnoDB;
 DROP TABLE IF EXISTS `mimatte_db`.`waxing_treatment` ;
 
 CREATE TABLE IF NOT EXISTS `mimatte_db`.`waxing_treatment` (
-  `id` INT UNSIGNED NOT NULL AUTO_INCREMENT,
-  `treatment_id` INT UNSIGNED NOT NULL,
+  `id` TINYINT UNSIGNED NOT NULL AUTO_INCREMENT,
+  `treatment_id` SMALLINT UNSIGNED NOT NULL,
+  `deleted_at` TIMESTAMP NULL,
+  `created_at` TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `updated_at` TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
   PRIMARY KEY (`id`),
   INDEX `fk_waxing_treatment_treatment1_idx` (`treatment_id` ASC),
   CONSTRAINT `fk_waxing_treatment_treatment1`
@@ -131,8 +149,11 @@ ENGINE = InnoDB;
 DROP TABLE IF EXISTS `mimatte_db`.`other_treatment` ;
 
 CREATE TABLE IF NOT EXISTS `mimatte_db`.`other_treatment` (
-  `id` INT UNSIGNED NOT NULL AUTO_INCREMENT,
-  `treatment_id` INT UNSIGNED NOT NULL,
+  `id` TINYINT UNSIGNED NOT NULL AUTO_INCREMENT,
+  `treatment_id` SMALLINT UNSIGNED NOT NULL,
+  `deleted_at` TIMESTAMP NULL,
+  `created_at` TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `updated_at` TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
   PRIMARY KEY (`id`),
   INDEX `fk_other_treatment_treatment1_idx` (`treatment_id` ASC),
   CONSTRAINT `fk_other_treatment_treatment1`
@@ -155,6 +176,9 @@ CREATE TABLE IF NOT EXISTS `mimatte_db`.`customer` (
   `birth_date` DATE NOT NULL,
   `email` VARCHAR(255) NOT NULL,
   `address` VARCHAR(255) NULL,
+  `deleted_at` TIMESTAMP NULL,
+  `created_at` TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `updated_at` TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
   PRIMARY KEY (`id`))
 ENGINE = InnoDB;
 
@@ -165,8 +189,11 @@ ENGINE = InnoDB;
 DROP TABLE IF EXISTS `mimatte_db`.`hour` ;
 
 CREATE TABLE IF NOT EXISTS `mimatte_db`.`hour` (
-  `id` INT UNSIGNED NOT NULL AUTO_INCREMENT,
+  `id` TINYINT UNSIGNED NOT NULL AUTO_INCREMENT,
   `start_time` TIME NOT NULL,
+  `deleted_at` TIMESTAMP NULL,
+  `created_at` TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `updated_at` TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
   PRIMARY KEY (`id`),
   UNIQUE INDEX `start_time_UNIQUE` (`start_time` ASC))
 ENGINE = InnoDB;
@@ -178,9 +205,12 @@ ENGINE = InnoDB;
 DROP TABLE IF EXISTS `mimatte_db`.`day` ;
 
 CREATE TABLE IF NOT EXISTS `mimatte_db`.`day` (
-  `id` INT UNSIGNED NOT NULL AUTO_INCREMENT,
+  `id` TINYINT UNSIGNED NOT NULL AUTO_INCREMENT,
   `code` VARCHAR(3) NOT NULL,
   `name` VARCHAR(45) NOT NULL,
+  `deleted_at` TIMESTAMP NULL,
+  `created_at` TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `updated_at` TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
   PRIMARY KEY (`id`),
   UNIQUE INDEX `code_UNIQUE` (`code` ASC))
 ENGINE = InnoDB;
@@ -192,9 +222,12 @@ ENGINE = InnoDB;
 DROP TABLE IF EXISTS `mimatte_db`.`month` ;
 
 CREATE TABLE IF NOT EXISTS `mimatte_db`.`month` (
-  `id` INT UNSIGNED NOT NULL AUTO_INCREMENT,
+  `id` TINYINT UNSIGNED NOT NULL AUTO_INCREMENT,
   `code` VARCHAR(3) NOT NULL,
   `name` VARCHAR(45) NOT NULL,
+  `deleted_at` TIMESTAMP NULL,
+  `created_at` TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `updated_at` TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
   PRIMARY KEY (`id`),
   UNIQUE INDEX `code_UNIQUE` (`code` ASC))
 ENGINE = InnoDB;
@@ -207,11 +240,15 @@ DROP TABLE IF EXISTS `mimatte_db`.`appointment` ;
 
 CREATE TABLE IF NOT EXISTS `mimatte_db`.`appointment` (
   `id` INT UNSIGNED NOT NULL AUTO_INCREMENT,
-  `hour_id` INT UNSIGNED NOT NULL,
-  `day_id` INT UNSIGNED NOT NULL,
-  `month_id` INT UNSIGNED NOT NULL,
+  `hour_id` TINYINT UNSIGNED NOT NULL,
+  `day_id` TINYINT UNSIGNED NOT NULL,
+  `month_id` TINYINT UNSIGNED NOT NULL,
   `customer_id` INT UNSIGNED NOT NULL,
-  `treatment_id` INT UNSIGNED NOT NULL,
+  `treatment_id` SMALLINT UNSIGNED NOT NULL,
+  `selected_date` DATE NOT NULL,
+  `deleted_at` TIMESTAMP NULL,
+  `created_at` TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `updated_at` TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
   PRIMARY KEY (`id`),
   INDEX `fk_appointment_hour1_idx` (`hour_id` ASC),
   INDEX `fk_appointment_day1_idx` (`day_id` ASC),
@@ -254,6 +291,9 @@ DROP TABLE IF EXISTS `mimatte_db`.`accepted_appointment` ;
 CREATE TABLE IF NOT EXISTS `mimatte_db`.`accepted_appointment` (
   `id` INT UNSIGNED NOT NULL AUTO_INCREMENT,
   `appointment_id` INT UNSIGNED NOT NULL,
+  `deleted_at` TIMESTAMP NULL,
+  `created_at` TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `updated_at` TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
   PRIMARY KEY (`id`),
   INDEX `fk_accepted_appointment_appointment1_idx` (`appointment_id` ASC),
   CONSTRAINT `fk_accepted_appointment_appointment1`
@@ -273,6 +313,9 @@ CREATE TABLE IF NOT EXISTS `mimatte_db`.`rejected_appointment` (
   `id` INT UNSIGNED NOT NULL AUTO_INCREMENT,
   `appointment_id` INT UNSIGNED NOT NULL,
   `reason` BLOB NULL,
+  `deleted_at` TIMESTAMP NULL,
+  `created_at` TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `updated_at` TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
   PRIMARY KEY (`id`),
   INDEX `fk_rejected_appointment_appointment1_idx` (`appointment_id` ASC),
   CONSTRAINT `fk_rejected_appointment_appointment1`
