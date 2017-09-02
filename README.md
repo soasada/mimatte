@@ -1,2 +1,3 @@
-# mimatte
-Repository for mimatte.com, an appointment app.
+# mimatte.com
+
+![alt text](https://imgur.com/QAPDpRB)
