@@ -23,4 +23,4 @@ The project requirements can be viewed online in Google docs:
 
 # To Do
 
-⋅⋅* Deployment section.
+* Deployment section.
