@@ -20,3 +20,7 @@ one for the backoffice and one for the customers.
 The project requirements can be viewed online in Google docs:
 
 [Requirements](https://docs.google.com/document/d/1zKdzfhtTgTdWsTE53viQrCRjyL17JYxjkICh7-YSXwQ/edit?usp=sharing)
+
+# To Do
+
+⋅⋅* Deployment section.
