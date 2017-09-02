@@ -1,5 +1,3 @@
-# mimatte.com
+![Mimate](https://i.imgur.com/QAPDpRB.png)
 
-![alt text](https://i.imgur.com/QAPDpRB.png)
-
-[Imgur](https://i.imgur.com/QAPDpRB.png)
+# Appointment system
