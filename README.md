@@ -24,3 +24,4 @@ The project requirements can be viewed online in Google docs:
 # To Do
 
 * Deployment section.
+* Swagger docs for public API.
