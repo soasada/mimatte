@@ -11,6 +11,10 @@ lazy val commonSettings = Seq(
   sources in (Compile,doc) := Seq.empty
 )
 
+lazy val root = (project in file(".")).
+  dependsOn(backoffice, clients, website).
+  aggregate(backoffice, clients, website)
+
 lazy val backoffice = (project in file("backoffice")).
   enablePlugins(PlayScala).
   settings(commonSettings).
