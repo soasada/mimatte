@@ -93,6 +93,7 @@ CREATE TABLE IF NOT EXISTS `mimatte_db`.`customer` (
   `surname` VARCHAR(150) NOT NULL,
   `birth_date` DATE NOT NULL,
   `email` VARCHAR(255) NOT NULL,
+  `digest` VARCHAR(255) NOT NULL,
   `address` VARCHAR(255) NULL,
   `deleted_at` TIMESTAMP NULL,
   `created_at` TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
@@ -170,6 +171,22 @@ CREATE TABLE IF NOT EXISTS `mimatte_db`.`rejected_appointment` (
   REFERENCES `mimatte_db`.`appointment` (`id`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
+  ENGINE = InnoDB;
+
+-- -----------------------------------------------------
+-- Table `mimatte_db`.`admin`
+-- -----------------------------------------------------
+DROP TABLE IF EXISTS `mimatte_db`.`admin` ;
+
+CREATE TABLE IF NOT EXISTS `mimatte_db`.`admin` (
+  `id` TINYINT UNSIGNED NOT NULL AUTO_INCREMENT,
+  `username` VARCHAR(150) NOT NULL,
+  `email` VARCHAR(255) NOT NULL,
+  `digest` VARCHAR(255) NOT NULL,
+  `deleted_at` TIMESTAMP NULL,
+  `created_at` TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `updated_at` TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+  PRIMARY KEY (`id`))
   ENGINE = InnoDB;
 
 
