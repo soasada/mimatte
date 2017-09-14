@@ -14,4 +14,4 @@ lazy val commonSettings = Seq(
 lazy val root = (project in file(".")).
   enablePlugins(PlayScala).
   settings(commonSettings).
-  settings(libraryDependencies ++= backendDeps ++ Seq(jdbc, guice))
+  settings(libraryDependencies ++= backendDeps ++ Seq(jdbc, guice, evolutions))
