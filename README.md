@@ -8,18 +8,27 @@ management system.
 
 # Project architecture
 
-The project is divided into four parts, one public API that
-list the treatments of the center and the schedule, one private 
-API that is in charge of all functionality and two frontends: 
-one for the backoffice and one for the customers.
+The project is divided into three parts, one RESTful API that 
+is in charge of all functionality and the database communication
+and two frontends: one for the admins and one for the customers.
 
-![Architecture](https://i.imgur.com/IBqn71i.png)
+![Architecture](https://i.imgur.com/SNTxTn2.png)
 
 # Project requirements
 
 The project requirements can be viewed online in Google docs:
 
 [Requirements](https://docs.google.com/document/d/1zKdzfhtTgTdWsTE53viQrCRjyL17JYxjkICh7-YSXwQ/edit?usp=sharing)
+
+# Milestones
+
+## Version 0.1
+
+Create the first API version with:
+
+* Appointment CRUD
+* Categories CRUD
+* Treatment CRUD
 
 # To Do
 
