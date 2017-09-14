@@ -12,20 +12,6 @@ lazy val commonSettings = Seq(
 )
 
 lazy val root = (project in file(".")).
-  dependsOn(backoffice, clients, website).
-  aggregate(backoffice, clients, website)
-
-lazy val backoffice = (project in file("backoffice")).
-  enablePlugins(PlayScala).
-  settings(commonSettings).
-  settings(libraryDependencies ++= backendDeps ++ Seq(jdbc, guice))
-
-lazy val clients = (project in file("clients")).
-  enablePlugins(PlayScala).
-  settings(commonSettings).
-  settings(libraryDependencies ++= backendDeps ++ Seq(jdbc, guice))
-
-lazy val website = (project in file("website")).
   enablePlugins(PlayScala).
   settings(commonSettings).
   settings(libraryDependencies ++= backendDeps ++ Seq(jdbc, guice))
