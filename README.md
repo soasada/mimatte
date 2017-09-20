@@ -26,9 +26,13 @@ The project requirements can be viewed online in Google docs:
 
 Create the first API version with:
 
-* Appointment CRUD
-* Categories CRUD
-* Treatment CRUD
+#### Backoffice
+
+The admin would like to:
+* Manage the appointments.
+* Manage the treatments.
+* Manage the customers.
+* Accept or deny an appointment.
 
 # To Do
 
