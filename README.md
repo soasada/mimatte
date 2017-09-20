@@ -24,8 +24,6 @@ The project requirements can be viewed online in Google docs:
 
 ## Version 0.1
 
-Create the first API version with:
-
 #### Backoffice
 
 The admin would like to:
