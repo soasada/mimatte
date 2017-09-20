@@ -28,10 +28,10 @@ The project requirements can be viewed online in Google docs:
 
 The admin would like to:
 
-#1 Manage the treatments.
-#2 Manage the customers.
-#3 Manage the appointments.
-#4 Accept or deny an appointment.
+- #1 Manage the treatments.
+- #2 Manage the customers.
+- #3 Manage the appointments.
+- #4 Accept or deny an appointment.
 
 
 # To Do
