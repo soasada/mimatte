@@ -3,7 +3,7 @@ import Dependencies._
 lazy val commonSettings = Seq(
   name := "mimatte",
   organization := "com.popokis",
-  version := "1.0",
+  version := "0.1",
   isSnapshot := true,
   scalaVersion := "2.12.3",
   publishArtifact in (Compile, packageDoc) := false,
