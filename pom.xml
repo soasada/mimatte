@@ -15,4 +15,9 @@
     <packaging>pom</packaging>
     <version>0.0.1</version>
 
+    <modules>
+        <module>backend</module>
+        <module>frontend</module>
+    </modules>
+
 </project>
