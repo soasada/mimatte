@@ -38,3 +38,13 @@ The admin would like to:
 
 * Deployment section.
 * Swagger docs for public API.
+
+# How to run
+
+## To launch tests
+
+`mvn clean install`
+
+## To run spring boot app
+
+`mvn --projects backend spring-boot:run`
