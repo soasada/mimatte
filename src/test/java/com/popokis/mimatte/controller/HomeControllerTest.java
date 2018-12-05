@@ -1,6 +1,6 @@
-package com.popokis.mimatte.backend.controller.v1;
+package com.popokis.mimatte.controller;
 
-import com.popokis.mimatte.backend.MainApplication;
+import com.popokis.mimatte.MainApplication;
 import io.restassured.RestAssured;
 import org.apache.http.HttpStatus;
 import org.junit.Before;
