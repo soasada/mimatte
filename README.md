@@ -10,7 +10,7 @@ management system.
 
 The project is divided into three parts, one RESTful API that 
 is in charge of all functionality and the database communication
-and two frontends: one for the admins and one for the customers.
+and one frontend with backoffice and user single page.
 
 ![Architecture](https://i.imgur.com/SNTxTn2.png)
 
