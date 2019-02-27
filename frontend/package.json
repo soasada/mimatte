@@ -9,24 +9,24 @@
     "test:unit": "vue-cli-service test:unit"
   },
   "dependencies": {
-    "vue": "^2.6.4",
-    "vue-router": "^3.0.2",
-    "axios": "^0.18.0",
-    "bootstrap": "^4.2.1"
+    "vue": "2.6.7",
+    "vue-router": "3.0.2",
+    "axios": "0.18.0",
+    "bootstrap": "4.3.1"
   },
   "devDependencies": {
-    "@types/jest": "^24.0.0",
-    "@vue/cli-plugin-babel": "^3.4.0",
-    "@vue/cli-plugin-typescript": "^3.4.0",
-    "@vue/cli-plugin-unit-jest": "^3.4.0",
-    "@vue/cli-service": "^3.4.0",
-    "@vue/test-utils": "^1.0.0-beta.29",
-    "babel-core": "7.0.0-bridge.0",
-    "node-sass": "^4.11.0",
-    "sass-loader": "^7.1.0",
-    "ts-jest": "^23.10.5",
-    "typescript": "^3.3.3",
-    "vue-template-compiler": "^2.6.4"
+    "@types/jest": "24.0.9",
+    "@types/jest-diff": "20.0.1",
+    "@vue/cli-plugin-typescript": "3.4.1",
+    "@vue/cli-plugin-unit-jest": "3.4.1",
+    "@vue/cli-service": "3.4.1",
+    "@vue/test-utils": "1.0.0-beta.29",
+    "node-sass": "4.11.0",
+    "sass-loader": "7.1.0",
+    "jest": "24.1.0",
+    "ts-jest": "24.0.0",
+    "typescript": "3.3.3333",
+    "vue-template-compiler": "2.6.7"
   },
   "postcss": {
     "plugins": {
@@ -61,11 +61,6 @@
     "testMatch": [
       "**/tests/unit/**/*.spec.(js|jsx|ts|tsx)|**/__tests__/*.(js|jsx|ts|tsx)"
     ],
-    "testURL": "http://localhost/",
-    "globals": {
-      "ts-jest": {
-        "babelConfig": true
-      }
-    }
+    "testURL": "http://localhost/"
   }
 }
