@@ -15,5 +15,20 @@ module.exports = {
     // Change build paths to make them Maven compatible
     // see https://cli.vuejs.org/config/
     outputDir: 'target/dist',
-    assetsDir: 'static'
+    assetsDir: 'static',
+    filenameHashing: false,
+    pages: {
+        index: {
+            entry: './src/pages/home/main.ts',
+            template: 'public/index.html',
+            title: 'Home',
+            chunks: ['chunk-vendors', 'chunk-common', 'index']
+        },
+        about: {
+            entry: './src/pages/about/main.ts',
+            template: 'public/index.html',
+            title: 'About',
+            chunks: ['chunk-vendors', 'chunk-common', 'about']
+        }
+    }
 };

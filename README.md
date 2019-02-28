@@ -41,9 +41,9 @@ The admin would like to:
 
 # How to run
 
-## To launch tests
+## Generate Jar, launch tests and linter.
 
-`mvn clean install`
+`mvn -U clean install`
 
 ## To run spring boot app
 
