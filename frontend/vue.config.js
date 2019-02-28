@@ -21,13 +21,13 @@ module.exports = {
         index: {
             entry: './src/pages/home/main.ts',
             template: 'public/index.html',
-            title: 'Home',
+            title: 'Centro de estética y relajación',
             chunks: ['chunk-vendors', 'chunk-common', 'index']
         },
         about: {
             entry: './src/pages/about/main.ts',
             template: 'public/index.html',
-            title: 'About',
+            title: 'Sobre nosotros',
             chunks: ['chunk-vendors', 'chunk-common', 'about']
         }
     }
