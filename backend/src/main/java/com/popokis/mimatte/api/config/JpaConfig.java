@@ -1,6 +1,5 @@
 package com.popokis.mimatte.api.config;
 
-import com.popokis.mimatte.api.config.AuditorAwareImpl;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.data.domain.AuditorAware;

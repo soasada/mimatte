@@ -33,7 +33,7 @@ public class HomeControllerTest {
   @Test
   public void saysHello() {
     when()
-        .get("/api/v1/hello")
+        .get("/hello")
         .then()
         .statusCode(HttpStatus.SC_OK)
         .assertThat()

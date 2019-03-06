@@ -1,5 +1,6 @@
 package com.popokis.mimatte.login.config;
 
+import com.fasterxml.jackson.databind.ObjectMapper;
 import com.popokis.mimatte.login.filter.JWTAuthenticationFilter;
 import com.popokis.mimatte.login.filter.JWTAuthorizationFilter;
 import com.popokis.mimatte.login.service.UserDetailsServiceImpl;
@@ -15,12 +16,14 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 @EnableWebSecurity
 public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
 
-  private UserDetailsServiceImpl userDetailsService;
-  private PasswordEncoder passwordEncoder;
+  private final UserDetailsServiceImpl userDetailsService;
+  private final PasswordEncoder passwordEncoder;
+  private final ObjectMapper objectMapper;
 
-  public SecurityConfiguration(UserDetailsServiceImpl userDetailsService, PasswordEncoder passwordEncoder) {
+  public SecurityConfiguration(UserDetailsServiceImpl userDetailsService, PasswordEncoder passwordEncoder, ObjectMapper objectMapper) {
     this.userDetailsService = userDetailsService;
     this.passwordEncoder = passwordEncoder;
+    this.objectMapper = objectMapper;
   }
 
   @Override
@@ -31,7 +34,7 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
         .antMatchers("/api/v1/**").authenticated()
         .anyRequest().permitAll()
         .and()
-        .addFilter(new JWTAuthenticationFilter(authenticationManager()))
+        .addFilter(new JWTAuthenticationFilter(authenticationManager(), objectMapper))
         .addFilter(new JWTAuthorizationFilter(authenticationManager()))
         .sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS);
   }
