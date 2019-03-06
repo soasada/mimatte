@@ -11,25 +11,24 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToMany;
 import java.time.LocalDateTime;
-import java.util.HashSet;
 import java.util.Set;
 
 @Entity
 @EntityListeners(AuditingEntityListener.class)
-public final class Tag {
+public final class Role {
 
   @Id
   @GeneratedValue(strategy = GenerationType.AUTO)
   private Long id;
+
   private String name;
+  @ManyToMany(mappedBy = "roles")
+  private Set<MimatteUser> users;
 
   @CreatedDate
   private LocalDateTime createdAt;
   @LastModifiedDate
   private LocalDateTime updatedAt;
-
-  @ManyToMany(mappedBy = "tags")
-  private Set<Product> products = new HashSet<>();
 
   public Long getId() {
     return id;
@@ -47,6 +46,14 @@ public final class Tag {
     this.name = name;
   }
 
+  public Set<MimatteUser> getUsers() {
+    return users;
+  }
+
+  public void setUsers(Set<MimatteUser> users) {
+    this.users = users;
+  }
+
   public LocalDateTime getCreatedAt() {
     return createdAt;
   }
@@ -61,13 +68,5 @@ public final class Tag {
 
   public void setUpdatedAt(LocalDateTime updatedAt) {
     this.updatedAt = updatedAt;
-  }
-
-  public Set<Product> getProducts() {
-    return products;
-  }
-
-  public void setProducts(Set<Product> products) {
-    this.products = products;
   }
 }

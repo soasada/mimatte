@@ -4,17 +4,24 @@ import org.springframework.data.annotation.CreatedDate;
 import org.springframework.data.annotation.LastModifiedDate;
 import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.EntityListeners;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
+import javax.persistence.ManyToMany;
 import javax.persistence.OneToMany;
+import javax.persistence.Table;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
+import java.util.Collection;
 import java.util.Set;
 
 @Entity
+@Table(name = "user")
 @EntityListeners(AuditingEntityListener.class)
 public final class MimatteUser {
 
@@ -38,6 +45,13 @@ public final class MimatteUser {
 
   @OneToMany(mappedBy = "agent")
   private Set<Appointment> agentAppointments;
+
+  @ManyToMany(cascade = {CascadeType.PERSIST, CascadeType.MERGE})
+  @JoinTable(
+      name = "user_roles",
+      joinColumns = @JoinColumn(name = "user_id", referencedColumnName = "id"),
+      inverseJoinColumns = @JoinColumn(name = "role_id", referencedColumnName = "id"))
+  private Set<Role> roles;
 
   public Long getId() {
     return id;
@@ -125,5 +139,13 @@ public final class MimatteUser {
 
   public void setAgentAppointments(Set<Appointment> agentAppointments) {
     this.agentAppointments = agentAppointments;
+  }
+
+  public Set<Role> getRoles() {
+    return roles;
+  }
+
+  public void setRoles(Set<Role> roles) {
+    this.roles = roles;
   }
 }

@@ -19,7 +19,7 @@ public final class Appointment {
 
   @Id
   @GeneratedValue(strategy = GenerationType.AUTO)
-  private Integer id;
+  private Long id;
   private LocalDateTime selectedDatetime;
   private Boolean accepted;
   private String comments;
@@ -41,11 +41,11 @@ public final class Appointment {
   @JoinColumn(name = "product_id", nullable = false)
   private Product product;
 
-  public Integer getId() {
+  public Long getId() {
     return id;
   }
 
-  public void setId(Integer id) {
+  public void setId(Long id) {
     this.id = id;
   }
 
