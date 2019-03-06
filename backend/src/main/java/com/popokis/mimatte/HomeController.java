@@ -1,4 +1,4 @@
-package com.popokis.mimatte.controller;
+package com.popokis.mimatte;
 
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;

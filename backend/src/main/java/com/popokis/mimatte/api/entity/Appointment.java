@@ -1,4 +1,4 @@
-package com.popokis.mimatte.entity;
+package com.popokis.mimatte.api.entity;
 
 import org.springframework.data.annotation.CreatedDate;
 import org.springframework.data.annotation.LastModifiedDate;
@@ -31,7 +31,11 @@ public final class Appointment {
 
   @ManyToOne
   @JoinColumn(name = "customer_id", nullable = false)
-  private Customer customer;
+  private MimatteUser customer;
+
+  @ManyToOne
+  @JoinColumn(name = "agent_id", nullable = false)
+  private MimatteUser agent;
 
   @ManyToOne
   @JoinColumn(name = "product_id", nullable = false)
@@ -85,12 +89,20 @@ public final class Appointment {
     this.updatedAt = updatedAt;
   }
 
-  public Customer getCustomer() {
+  public MimatteUser getCustomer() {
     return customer;
   }
 
-  public void setCustomer(Customer customer) {
+  public void setCustomer(MimatteUser customer) {
     this.customer = customer;
+  }
+
+  public MimatteUser getAgent() {
+    return agent;
+  }
+
+  public void setAgent(MimatteUser agent) {
+    this.agent = agent;
   }
 
   public Product getProduct() {

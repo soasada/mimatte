@@ -9,22 +9,42 @@
     "test:unit": "vue-cli-service test:unit"
   },
   "dependencies": {
-    "vue": "2.6.7",
+    "vue": "2.6.8",
+    "vue-router": "3.0.2",
+    "vuex": "3.1.0",
+    "bootstrap": "4.3.1",
     "axios": "0.18.0",
-    "bootstrap": "4.3.1"
+    "jsonwebtoken": "8.5.0"
   },
   "devDependencies": {
-    "@types/jest": "24.0.9",
-    "@vue/cli-plugin-typescript": "3.4.1",
+    "@vue/cli-plugin-babel": "3.4.1",
+    "@vue/cli-plugin-eslint": "3.4.1",
     "@vue/cli-plugin-unit-jest": "3.4.1",
     "@vue/cli-service": "3.4.1",
+    "@vue/eslint-config-standard": "4.0.0",
     "@vue/test-utils": "1.0.0-beta.29",
+    "babel-core": "7.0.0-bridge.0",
+    "babel-eslint": "10.0.1",
+    "babel-jest": "23.6.0",
+    "eslint": "5.15.1",
+    "eslint-plugin-vue": "5.2.2",
     "node-sass": "4.11.0",
     "sass-loader": "7.1.0",
-    "jest": "24.1.0",
-    "ts-jest": "24.0.0",
-    "typescript": "3.3.3333",
-    "vue-template-compiler": "2.6.7"
+    "vue-template-compiler": "2.6.8"
+  },
+  "eslintConfig": {
+    "root": true,
+    "env": {
+      "node": true
+    },
+    "extends": [
+      "plugin:vue/essential",
+      "@vue/standard"
+    ],
+    "rules": {},
+    "parserOptions": {
+      "parser": "babel-eslint"
+    }
   },
   "postcss": {
     "plugins": {
@@ -41,14 +61,12 @@
       "js",
       "jsx",
       "json",
-      "vue",
-      "ts",
-      "tsx"
+      "vue"
     ],
     "transform": {
       "^.+\\.vue$": "vue-jest",
       ".+\\.(css|styl|less|sass|scss|svg|png|jpg|ttf|woff|woff2)$": "jest-transform-stub",
-      "^.+\\.tsx?$": "ts-jest"
+      "^.+\\.jsx?$": "babel-jest"
     },
     "moduleNameMapper": {
       "^@/(.*)$": "<rootDir>/src/$1"

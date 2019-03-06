@@ -1,4 +1,4 @@
-package com.popokis.mimatte.entity;
+package com.popokis.mimatte.api.entity;
 
 import org.springframework.data.annotation.CreatedDate;
 import org.springframework.data.annotation.LastModifiedDate;
@@ -16,11 +16,11 @@ import java.util.Set;
 
 @Entity
 @EntityListeners(AuditingEntityListener.class)
-public final class Customer {
+public final class MimatteUser {
 
   @Id
   @GeneratedValue(strategy = GenerationType.AUTO)
-  private Integer id;
+  private Long id;
   private String name;
   private String surname;
   private LocalDate birthDate;
@@ -34,13 +34,16 @@ public final class Customer {
   private LocalDateTime updatedAt;
 
   @OneToMany(mappedBy = "customer")
-  private Set<Appointment> appointments;
+  private Set<Appointment> customerAppointments;
 
-  public Integer getId() {
+  @OneToMany(mappedBy = "agent")
+  private Set<Appointment> agentAppointments;
+
+  public Long getId() {
     return id;
   }
 
-  public void setId(Integer id) {
+  public void setId(Long id) {
     this.id = id;
   }
 
@@ -108,11 +111,19 @@ public final class Customer {
     this.updatedAt = updatedAt;
   }
 
-  public Set<Appointment> getAppointments() {
-    return appointments;
+  public Set<Appointment> getCustomerAppointments() {
+    return customerAppointments;
   }
 
-  public void setAppointments(Set<Appointment> appointments) {
-    this.appointments = appointments;
+  public void setCustomerAppointments(Set<Appointment> customerAppointments) {
+    this.customerAppointments = customerAppointments;
+  }
+
+  public Set<Appointment> getAgentAppointments() {
+    return agentAppointments;
+  }
+
+  public void setAgentAppointments(Set<Appointment> agentAppointments) {
+    this.agentAppointments = agentAppointments;
   }
 }

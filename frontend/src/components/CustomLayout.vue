@@ -11,14 +11,12 @@
     </div>
 </template>
 
-<script lang="ts">
-    import Vue from 'vue';
-
-    export default Vue.extend({
-        name: 'CustomLayout',
-    });
+<script>
+    export default {
+        name: 'CustomLayout'
+    };
 </script>
 
-<style scoped>
+<style scoped lang="scss">
 
 </style>

@@ -1,4 +1,4 @@
-package com.popokis.mimatte.config;
+package com.popokis.mimatte.api.config;
 
 import org.springframework.data.domain.AuditorAware;
 

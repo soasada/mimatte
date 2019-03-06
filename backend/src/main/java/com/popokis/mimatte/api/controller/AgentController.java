@@ -1,7 +1,7 @@
-package com.popokis.mimatte.controller.api;
+package com.popokis.mimatte.api.controller;
 
-import com.popokis.mimatte.entity.Agent;
-import com.popokis.mimatte.repository.AgentRepository;
+import com.popokis.mimatte.api.entity.Agent;
+import com.popokis.mimatte.api.repository.MimatteUserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -14,7 +14,7 @@ import org.springframework.web.bind.annotation.RestController;
 public final class AgentController {
 
   @Autowired
-  private AgentRepository agentRepository;
+  private MimatteUserRepository agentRepository;
 
   @GetMapping(path="/add")
   public @ResponseBody String add(@RequestParam String name, @RequestParam String email) {
